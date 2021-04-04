@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HFdemo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="result">Hello Results</string>
+    <string name="favourites">Hello Favourites</string>
+    <string name="tip">Hello Tip</string>
+    <string name="results_fragment_title">Results</string>
+    <string name="favourites_fragment_title">Favourites</string>
+    <string name="tip_fragment_title">Tip</string>
+</resources>
