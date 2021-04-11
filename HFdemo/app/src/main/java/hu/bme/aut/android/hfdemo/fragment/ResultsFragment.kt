@@ -1,11 +1,16 @@
 package hu.bme.aut.android.hfdemo.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
+import hu.bme.aut.android.hfdemo.R
+import hu.bme.aut.android.hfdemo.adapter.MatchAdapter
 import hu.bme.aut.android.hfdemo.data.AllData
+import hu.bme.aut.android.hfdemo.data.Match
 import hu.bme.aut.android.hfdemo.databinding.FragmentResultsBinding
 import hu.bme.aut.android.hfdemo.network.ResultsAPI
 import okhttp3.Interceptor
@@ -20,6 +25,27 @@ import java.util.Calendar
 class ResultsFragment : Fragment() {
 
     private lateinit var binding: FragmentResultsBinding
+    private lateinit var matchAdapter: MatchAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        //setupRecycleView()
+    }
+
+    @SuppressLint("UseRequireInsteadOfGet")
+    private fun setupRecycleView() {
+        val demoData = mutableListOf(
+            Match(1, "Real Betis", "Atletico Madrid", 3, 1, "https://media.api-sports.io/football/teams/543.png", "https://media.api-sports.io/football/teams/530.png", "21:00"),
+            Match(1, "Real Betis", "Atletico Madrid", 3, 1, "https://media.api-sports.io/football/teams/543.png", "https://media.api-sports.io/football/teams/530.png", "21:00"),
+            Match(1, "Real Betis", "Atletico Madrid", 3, 1, "https://media.api-sports.io/football/teams/543.png", "https://media.api-sports.io/football/teams/530.png", "21:00")
+        )
+        matchAdapter = this.context?.let { MatchAdapter(it) }!!
+        //matchAdapter.itemClickListener = this
+        matchAdapter.addMatch(demoData[0])
+        matchAdapter.addMatch(demoData[1])
+        matchAdapter.addMatch(demoData[2])
+        binding.root.findViewById<RecyclerView>(R.id.match_list).adapter = matchAdapter
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -27,7 +53,7 @@ class ResultsFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View {
         binding = FragmentResultsBinding.inflate(layoutInflater, container, false)
-
+        setupRecycleView()
         //FONTOS KÓD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //így is lehet headert hozzáadni, ezzel az öszes hívás headerje ez lesz
         /*val okHttpClient = OkHttpClient.Builder().apply {
