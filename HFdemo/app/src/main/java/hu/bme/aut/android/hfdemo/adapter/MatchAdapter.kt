@@ -38,6 +38,7 @@ class MatchAdapter(private val context: Context) : ListAdapter<Match, MatchAdapt
         val imgHome: ImageView = binding.imgHome
         val imgAway: ImageView = binding.imgAway
         val tvMatchDate: TextView = binding.tvMatchDate
+        val tvMatchDateHour: TextView = binding.tvMatchDateHour
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -47,9 +48,10 @@ class MatchAdapter(private val context: Context) : ListAdapter<Match, MatchAdapt
         val tmpMatch = matchList[position]
         holder.tvHomeTeam.text = tmpMatch.homeTeam
         holder.tvAwayTeam.text = tmpMatch.awayTeam
-        holder.tvHomeGoals.text = tmpMatch.homeGoals.toString()
-        holder.tvAwayGoals.text = tmpMatch.awayGoals.toString()
-        holder.tvMatchDate.text = "hallo"
+        holder.tvHomeGoals.text = tmpMatch.homeGoals?.toString()
+        holder.tvAwayGoals.text = tmpMatch.awayGoals?.toString()
+        holder.tvMatchDate.text = "04.11."
+        holder.tvMatchDateHour.text = tmpMatch.matchDate
 
         if (tmpMatch.homeImageURL.isNullOrBlank()) {
             holder.imgHome.visibility = View.GONE

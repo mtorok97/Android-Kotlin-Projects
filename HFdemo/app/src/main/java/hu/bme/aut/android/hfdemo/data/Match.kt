@@ -8,5 +8,5 @@ data class Match(
         val awayGoals: Int?,
         val homeImageURL: String?,
         val awayImageURL: String?,
-        val matchDate: String,
+        val matchDate: String?,
 )

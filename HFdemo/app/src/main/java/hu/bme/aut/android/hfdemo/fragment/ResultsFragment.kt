@@ -11,6 +11,7 @@ import hu.bme.aut.android.hfdemo.R
 import hu.bme.aut.android.hfdemo.adapter.MatchAdapter
 import hu.bme.aut.android.hfdemo.data.AllData
 import hu.bme.aut.android.hfdemo.data.Match
+import hu.bme.aut.android.hfdemo.data.Response_http
 import hu.bme.aut.android.hfdemo.databinding.FragmentResultsBinding
 import hu.bme.aut.android.hfdemo.network.ResultsAPI
 import okhttp3.Interceptor
@@ -26,11 +27,7 @@ class ResultsFragment : Fragment() {
 
     private lateinit var binding: FragmentResultsBinding
     private lateinit var matchAdapter: MatchAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        //setupRecycleView()
-    }
+    private lateinit var sportRes: AllData
 
     @SuppressLint("UseRequireInsteadOfGet")
     private fun setupRecycleView() {
@@ -41,9 +38,9 @@ class ResultsFragment : Fragment() {
         )
         matchAdapter = this.context?.let { MatchAdapter(it) }!!
         //matchAdapter.itemClickListener = this
-        matchAdapter.addMatch(demoData[0])
-        matchAdapter.addMatch(demoData[1])
-        matchAdapter.addMatch(demoData[2])
+        //matchAdapter.addMatch(demoData[0])
+        //matchAdapter.addMatch(demoData[1])
+        //matchAdapter.addMatch(demoData[2])
         binding.root.findViewById<RecyclerView>(R.id.match_list).adapter = matchAdapter
     }
 
@@ -99,9 +96,12 @@ class ResultsFragment : Fragment() {
 
 
                     val sportResult = response.body()
+                    if (sportResult != null) {
+                        sportRes = sportResult
+                    }
                     if (sportResult?.response != null) {
                         for (element in sportResult.response) {
-                            element.teams?.home?.name?.let { it1 -> homeTeamList.add(it1) }
+                            element.teams?.home?.name?.let { it1 -> homeTeamList.add(it1); print("jall") }
                             element.teams?.away?.name?.let { it2 -> awayTeamList.add(it2) }
                             element.goals!!.home.let { it3 -> homeGoalsList.add(it3) }
                             element.goals!!.away.let { it4 -> awayGoalsList.add(it4) }
@@ -110,10 +110,29 @@ class ResultsFragment : Fragment() {
 
                         }
                     }
-                    val homeTeam = sportResult?.response?.get(0)?.teams?.home?.name
-                    val awayTeam = sportResult?.response?.get(0)?.teams?.away?.name
-                    val homeGoals = sportResult?.response?.get(0)?.goals?.home
-                    val awayGoals = sportResult?.response?.get(0)?.goals?.away
+                    //megpróbálom a recycle viewba tenni az adatot az api hívás után
+                    if (sportResult?.response != null) {
+                        for (element in sportResult.response) {
+                            //dátum kiszedése
+                            val matchDate = "${(element.fixture!!.date?.take(13)?.takeLast(2)?.toInt()
+                                ?.plus(2)).toString()}${(element.fixture!!.date?.take(16)?.takeLast(3))}"
+                                //eddig dátum
+                            matchAdapter.addMatch(
+                                element.fixture?.id?.let { it1 -> element.teams?.home?.name?.let { it2 ->
+                                    element.teams.away?.name?.let { it3 ->
+                                        Match(it1,
+                                            it2,
+                                            it3,
+                                            element.goals!!.home, element.goals!!.away,
+                                            element.teams.home.logo, element.teams.away.logo,
+                                            matchDate)
+                                    }
+                                } },
+                            )
+                        }
+                    }
+
+                    //val homeTeam = sportResult?.response?.get(0)?.teams?.home?.name
 
                     /*binding.tvData.text =
                             "$homeTeam ${homeGoals.toString()} - ${awayGoals.toString()} $awayTeam\r\n" +
@@ -122,7 +141,7 @@ class ResultsFragment : Fragment() {
                                     "${Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + 2} ${Calendar.getInstance().get(Calendar.MINUTE)} ${Calendar.getInstance().get(Calendar.SECOND)}"
 
                      */
-                    binding.tvData.text = "${homeTeamList.get(3)} ${homeGoalsList?.get(3)?.toString() ?: ""} - ${awayGoalsList?.get(3)?.toString() ?: ""} ${awayTeamList[3]}\r\n"
+                    //binding.tvData.text = "${homeTeamList.get(3)} ${homeGoalsList?.get(3)?.toString() ?: ""} - ${awayGoalsList?.get(3)?.toString() ?: ""} ${awayTeamList[3]}\r\n"
                 }
             })
         }
