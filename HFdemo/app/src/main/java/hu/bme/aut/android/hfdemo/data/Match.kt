@@ -1,5 +1,7 @@
 package hu.bme.aut.android.hfdemo.data
 
+import android.os.Parcelable
+
 data class Match(
         val matchId: Int,
         val homeTeam: String,
@@ -9,4 +11,5 @@ data class Match(
         val homeImageURL: String?,
         val awayImageURL: String?,
         val matchDate: String?,
+        val myTip: String?
 )

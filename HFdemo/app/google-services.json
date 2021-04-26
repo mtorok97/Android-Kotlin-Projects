@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "179925225895",
+    "project_id": "hfdemo-55e96",
+    "storage_bucket": "hfdemo-55e96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179925225895:android:4cb4f9a4b42d8073682682",
+        "android_client_info": {
+          "package_name": "hu.bme.aut.android.hfdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "179925225895-27a63g35le8r5hl13phtnhj5a7v8sfl2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFaTg6-tn6fph4TOEPfH4Vp3seNGWTysg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179925225895-27a63g35le8r5hl13phtnhj5a7v8sfl2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

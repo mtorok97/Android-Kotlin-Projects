@@ -148,7 +148,8 @@ class ResultsFragment : Fragment(), DatePickerDialogFragment.DateListener{
                                                 it3,
                                                 element.goals!!.home, element.goals!!.away,
                                                 element.teams.home.logo, element.teams.away.logo,
-                                                matchDate
+                                                matchDate,
+                                                null
                                             )
                                         }
                                     }

@@ -12,7 +12,7 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="5dp">
 
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -120,11 +120,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@id/linearLayout1">
+
+            <TextView
+                android:id="@+id/tvMyTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp" />
 
             <TextView
                 android:id="@+id/tvMatchDateHour"
