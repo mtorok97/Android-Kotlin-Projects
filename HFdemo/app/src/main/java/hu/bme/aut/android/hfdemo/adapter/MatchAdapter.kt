@@ -26,8 +26,8 @@ class MatchAdapter(private val context: Context) : ListAdapter<Match, MatchAdapt
                 return oldItem == newItem
             }
         }
+        var matchList = emptyList<Match>()
     }
-    private val matchList: MutableList<Match> = mutableListOf()
     private var lastPosition = -1
 
     class MatchViewHolder(binding: MatchOverviewBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -37,7 +37,7 @@ class MatchAdapter(private val context: Context) : ListAdapter<Match, MatchAdapt
         val tvAwayGoals: TextView = binding.tvAwayGoals
         val imgHome: ImageView = binding.imgHome
         val imgAway: ImageView = binding.imgAway
-        val tvMatchDate: TextView = binding.tvMatchDate
+        //val tvMatchDate: TextView = binding.tvMatchDate
         val tvMatchDateHour: TextView = binding.tvMatchDateHour
     }
 
@@ -50,7 +50,7 @@ class MatchAdapter(private val context: Context) : ListAdapter<Match, MatchAdapt
         holder.tvAwayTeam.text = tmpMatch.awayTeam
         holder.tvHomeGoals.text = tmpMatch.homeGoals?.toString()
         holder.tvAwayGoals.text = tmpMatch.awayGoals?.toString()
-        holder.tvMatchDate.text = "04.11."
+        //holder.tvMatchDate.text = "04.11."
         holder.tvMatchDateHour.text = tmpMatch.matchDate
 
         if (tmpMatch.homeImageURL.isNullOrBlank()) {
