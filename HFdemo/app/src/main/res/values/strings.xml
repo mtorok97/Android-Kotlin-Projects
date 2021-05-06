@@ -23,4 +23,7 @@
     <string name="away">Away</string>
     <string name="draw">Draw</string>
     <string name="home">Home</string>
+    <string name="tip_text">Click to make tips for today!</string>
+    <string name="show_matches_today">Show matches today</string>
+    <string name="get_results">Get results</string>
 </resources>

@@ -11,5 +11,4 @@ data class Match(
         val homeImageURL: String?,
         val awayImageURL: String?,
         val matchDate: String?,
-        val myTip: String?
 )

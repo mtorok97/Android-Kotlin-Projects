@@ -17,7 +17,7 @@ interface ResultsAPI {
                     "Accept-Encoding: identity"
     )
     @GET("/fixtures")
-    fun getMoney(@Query("league") league: String,
+    fun getMatch(@Query("league") league: String,
                  @Query("season") season: String,
                  @Query("date") date: String
     ) : Call<AllData>

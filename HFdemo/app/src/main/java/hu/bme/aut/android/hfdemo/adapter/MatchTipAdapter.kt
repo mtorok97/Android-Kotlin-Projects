@@ -14,7 +14,6 @@ import com.bumptech.glide.Glide
 import hu.bme.aut.android.hfdemo.data.Match
 import hu.bme.aut.android.hfdemo.databinding.MatchOverviewBinding
 
-
 open class MatchTipAdapter(private val context: Context) :
     ListAdapter<Match, MatchTipAdapter.MatchTipViewHolder>(itemCallback) {
 
@@ -45,7 +44,6 @@ open class MatchTipAdapter(private val context: Context) :
         val imgHome: ImageView = binding.imgHome
         val imgAway: ImageView = binding.imgAway
         val tvMatchDateHour: TextView = binding.tvMatchDateHour
-        val tvMyTip: TextView = binding.tvMyTip
 
         var match: Match? = null
 
@@ -74,7 +72,6 @@ open class MatchTipAdapter(private val context: Context) :
         holder.tvHomeGoals.text = tmpMatch.homeGoals?.toString()
         holder.tvAwayGoals.text = tmpMatch.awayGoals?.toString()
         holder.tvMatchDateHour.text = tmpMatch.matchDate
-        holder.tvMyTip.text = tmpMatch.myTip
 
         if (tmpMatch.homeImageURL.isNullOrBlank()) {
             holder.imgHome.visibility = View.GONE

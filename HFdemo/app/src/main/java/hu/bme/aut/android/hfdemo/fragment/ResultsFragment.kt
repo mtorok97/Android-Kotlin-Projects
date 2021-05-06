@@ -19,7 +19,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.*
 
 
-class ResultsFragment : Fragment(), DatePickerDialogFragment.DateListener{
+class ResultsFragment : Fragment(), DatePickerDialogFragment.DateListener {
 
     private lateinit var binding: FragmentResultsBinding
     private lateinit var matchAdapter: MatchAdapter
@@ -94,7 +94,7 @@ class ResultsFragment : Fragment(), DatePickerDialogFragment.DateListener{
 
         binding.btnGetResults.setOnClickListener {
 
-            val resultsCall = resultsAPI.getMoney("140", getSeason(), currentDate)
+            val resultsCall = resultsAPI.getMatch("140", getSeason(), currentDate)
 
             resultsCall.enqueue(object : Callback<AllData> {
                 override fun onFailure(call: Call<AllData>, t: Throwable) {
@@ -119,7 +119,7 @@ class ResultsFragment : Fragment(), DatePickerDialogFragment.DateListener{
                     }
                     if (sportResult?.response != null) {
                         for (element in sportResult.response) {
-                            element.teams?.home?.name?.let { it1 -> homeTeamList.add(it1); print("jall") }
+                            element.teams?.home?.name?.let { it1 -> homeTeamList.add(it1) }
                             element.teams?.away?.name?.let { it2 -> awayTeamList.add(it2) }
                             element.goals!!.home.let { it3 -> homeGoalsList.add(it3) }
                             element.goals!!.away.let { it4 -> awayGoalsList.add(it4) }
@@ -148,8 +148,7 @@ class ResultsFragment : Fragment(), DatePickerDialogFragment.DateListener{
                                                 it3,
                                                 element.goals!!.home, element.goals!!.away,
                                                 element.teams.home.logo, element.teams.away.logo,
-                                                matchDate,
-                                                null
+                                                matchDate
                                             )
                                         }
                                     }

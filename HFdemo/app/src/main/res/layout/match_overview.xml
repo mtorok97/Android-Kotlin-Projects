@@ -127,12 +127,6 @@
             card_view:layout_constraintTop_toBottomOf="@id/linearLayout1">
 
             <TextView
-                android:id="@+id/tvMyTip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp" />
-
-            <TextView
                 android:id="@+id/tvMatchDateHour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

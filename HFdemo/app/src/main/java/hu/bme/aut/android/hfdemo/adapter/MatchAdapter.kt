@@ -16,6 +16,8 @@ import com.bumptech.glide.Glide
 
 class MatchAdapter(private val context: Context) : ListAdapter<Match, MatchAdapter.MatchViewHolder>(itemCallback) {
 
+    var itemClickListener: MatchItemClickListener? = null
+
     companion object {
         object itemCallback : DiffUtil.ItemCallback<Match>() {
             override fun areItemsTheSame(oldItem: Match, newItem: Match): Boolean {
@@ -30,15 +32,23 @@ class MatchAdapter(private val context: Context) : ListAdapter<Match, MatchAdapt
     }
     private var lastPosition = -1
 
-    class MatchViewHolder(binding: MatchOverviewBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MatchViewHolder(binding: MatchOverviewBinding) : RecyclerView.ViewHolder(binding.root) {
         val tvHomeTeam: TextView = binding.tvHomeTeam
         val tvAwayTeam: TextView = binding.tvAwayTeam
         val tvHomeGoals: TextView = binding.tvHomeGoals
         val tvAwayGoals: TextView = binding.tvAwayGoals
         val imgHome: ImageView = binding.imgHome
         val imgAway: ImageView = binding.imgAway
-        //val tvMatchDate: TextView = binding.tvMatchDate
         val tvMatchDateHour: TextView = binding.tvMatchDateHour
+
+        var match: Match? = null
+
+        init {
+            itemView.setOnClickListener {
+                match?.let { match -> itemClickListener?.onItemClick(match) }
+            }
+
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -46,11 +56,11 @@ class MatchAdapter(private val context: Context) : ListAdapter<Match, MatchAdapt
 
     override fun onBindViewHolder(holder: MatchViewHolder, position: Int) {
         val tmpMatch = matchList[position]
+        holder.match = tmpMatch
         holder.tvHomeTeam.text = tmpMatch.homeTeam
         holder.tvAwayTeam.text = tmpMatch.awayTeam
         holder.tvHomeGoals.text = tmpMatch.homeGoals?.toString()
         holder.tvAwayGoals.text = tmpMatch.awayGoals?.toString()
-        //holder.tvMatchDate.text = "04.11."
         holder.tvMatchDateHour.text = tmpMatch.matchDate
 
         if (tmpMatch.homeImageURL.isNullOrBlank()) {
@@ -83,5 +93,10 @@ class MatchAdapter(private val context: Context) : ListAdapter<Match, MatchAdapt
             viewToAnimate.startAnimation(animation)
             lastPosition = position
         }
+    }
+
+    interface MatchItemClickListener {
+        fun onItemClick(match: Match)
+        //fun onItemLongClick(position: Int, view: View): Boolean
     }
 }
