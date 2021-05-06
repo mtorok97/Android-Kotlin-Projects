@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.Gameon" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/gameon_green_500</item>
+        <item name="colorOnPrimary">@color/gameon_yellow_500</item>
+        <item name="colorPrimaryDark">@color/gameon_green_700</item>
+        <item name="colorOnSurface">@color/gameon_black</item>
+        <item name="colorAccent">@color/gameon_green_700</item>
+        <item name="colorSurface">@color/gameon_gray_50</item>
+        <item name="colorSecondary">@color/gameon_yellow_500</item>
+        <item name="android:colorBackground">@color/gameon_green_500</item>
+    </style>
+
+    <style name="Theme.Gameon" parent="Base.Theme.Gameon"/>
+
+    <style name="Theme.Gameon.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Gameon.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
+
+    <style name="TextAppearance.gameon.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5" >
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+</resources>

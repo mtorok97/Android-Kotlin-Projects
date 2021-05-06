@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Football Results</string>
+    <string name="results_fragment_title">Results</string>
+    <string name="tip_fragment_title">tip</string>
+    <string name="favourites_fragment_title">Favourites</string>
+    <string name="get_results">Get Results</string>
+    <string name="favourites">Hello Favourites!</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="date_picker">Date picker</string>
+</resources>

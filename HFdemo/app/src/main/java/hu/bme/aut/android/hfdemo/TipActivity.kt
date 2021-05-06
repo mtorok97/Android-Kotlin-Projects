@@ -80,17 +80,17 @@ class TipActivity : BaseActivity(), MatchAdapter.MatchItemClickListener {
                         val matchDate = "${
                             (element.fixture!!.date?.take(13)?.takeLast(2)?.toInt()
                                 ?.plus(2)).toString()
-                        }${(element.fixture!!.date?.take(16)?.takeLast(3))}"
+                        }${(element.fixture.date?.take(16)?.takeLast(3))}"
                         //eddig dátum
                         matchAdapter.addMatch(
-                            element.fixture?.id?.let { it1 ->
+                            element.fixture.id?.let { it1 ->
                                 element.teams?.home?.name?.let { it2 ->
                                     element.teams.away?.name?.let { it3 ->
                                         Match(
                                             it1,
                                             it2,
                                             it3,
-                                            element.goals!!.home, element.goals!!.away,
+                                            element.goals!!.home, element.goals.away,
                                             element.teams.home.logo, element.teams.away.logo,
                                             matchDate
                                         )
