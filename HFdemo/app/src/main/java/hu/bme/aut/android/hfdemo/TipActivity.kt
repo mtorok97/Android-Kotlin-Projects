@@ -42,6 +42,10 @@ class TipActivity : BaseActivity(), MatchAdapter.MatchItemClickListener {
         binding.btn1.setOnClickListener {
             getretrofit()
         }
+
+        binding.btn2.setOnClickListener{
+            startActivity(Intent(this, TipViewActivity::class.java))
+        }
     }
 
     fun getretrofit() {

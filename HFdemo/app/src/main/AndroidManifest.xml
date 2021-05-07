@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Gameon">
-        <activity android:name=".DetailTipActivity"></activity>
+        <activity android:name=".TipViewActivity"></activity>
+        <activity android:name=".TipActivitySecond" />
+        <activity android:name=".DetailTipActivity" />
         <activity android:name=".TipActivity" />
         <activity android:name=".StartActivity">
             <intent-filter>

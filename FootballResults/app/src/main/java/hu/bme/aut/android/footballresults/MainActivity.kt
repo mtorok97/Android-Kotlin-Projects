@@ -1,6 +1,5 @@
 package hu.bme.aut.android.footballresults
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import hu.bme.aut.android.footballresults.databinding.ActivityMainBinding
 

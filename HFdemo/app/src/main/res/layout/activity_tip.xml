@@ -35,6 +35,17 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.royrodriguez.transitionbutton.TransitionButton
+                android:id="@+id/btn2"
+                android:textColor="@color/black"
+                app:defaultColor="@color/purple_200"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/show_tips"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="10dp"
+                app:layout_constraintTop_toBottomOf="@id/tvdata1" />
+
+            <com.royrodriguez.transitionbutton.TransitionButton
                 android:id="@+id/btn1"
                 android:textColor="@color/black"
                 app:defaultColor="@color/purple_200"
