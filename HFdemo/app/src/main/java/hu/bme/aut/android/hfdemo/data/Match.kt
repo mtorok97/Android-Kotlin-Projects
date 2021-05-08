@@ -1,7 +1,5 @@
 package hu.bme.aut.android.hfdemo.data
 
-import android.os.Parcelable
-
 data class Match(
         val matchId: Int,
         val homeTeam: String,

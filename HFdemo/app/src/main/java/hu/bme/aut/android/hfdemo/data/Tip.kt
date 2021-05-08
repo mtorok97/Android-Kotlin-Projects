@@ -6,5 +6,6 @@ data class Tip(
     var matchID: String? = null,
     var homeTeam: String? = null,
     var awayTeam: String? = null,
-    var tip: String? = null //Home/Away/X
+    var tip: String? = null, //HOME/DRAW/AWAY
+    var points: Int = 0
 )

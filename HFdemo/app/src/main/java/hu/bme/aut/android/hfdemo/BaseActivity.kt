@@ -1,10 +1,15 @@
 package hu.bme.aut.android.hfdemo
 
 import android.app.ProgressDialog
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
+import hu.bme.aut.android.hfdemo.data.Points
 
 abstract class BaseActivity : AppCompatActivity() {
 

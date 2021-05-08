@@ -13,6 +13,7 @@ import java.util.*
 
 class DetailTipActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailTipBinding
+    private var args: Array<String>? = null
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +22,7 @@ class DetailTipActivity : BaseActivity() {
         setContentView(binding.root)
         getData()
 
-        val args = intent.getStringArrayExtra("MATCH")
+        args = intent.getStringArrayExtra("MATCH")
         binding.tvDate.text = args?.get(7)
         Glide.with(this).load(args?.get(5)).into(binding.ivHome)
         Glide.with(this).load(args?.get(6)).into(binding.ivAway)
@@ -29,16 +30,31 @@ class DetailTipActivity : BaseActivity() {
         binding.tvTeamAway.text = args?.get(2)
         binding.tvMytip.text = "My tip: "
         binding.btnHome.setOnClickListener {
-            binding.tvMytip.text = "My tip: ${args?.get(1)}"
-            uploadTip(args!!.get(0), "HOME", args!!.get(1), args!!.get(2))
+            val tipEnabled = checkDate()
+            if (tipEnabled) {
+                uploadTip(args!!.get(0), "HOME", args!!.get(1), args!!.get(2))
+                binding.tvMytip.text = "My tip: ${args?.get(1)}"
+            } else {
+                toastLong("Invalid tip! You can not tip during or after the match!")
+            }
         }
         binding.btnX.setOnClickListener {
-            binding.tvMytip.text = "My tip: Draw"
-            uploadTip(args!!.get(0), "DRAW", args!!.get(1), args!!.get(2))
+            val tipEnabled = checkDate()
+            if (tipEnabled) {
+                uploadTip(args!!.get(0), "DRAW", args!!.get(1), args!!.get(2))
+                binding.tvMytip.text = "My tip: Draw"
+            } else {
+                toastLong("Invalid tip! You can not tip during and after the match!")
+            }
         }
         binding.btnAway.setOnClickListener {
-            binding.tvMytip.text = "My tip: ${args?.get(2)}"
-            uploadTip(args!!.get(0), "AWAY", args!!.get(1), args!!.get(2))
+            val tipEnabled = checkDate()
+            if (tipEnabled) {
+                uploadTip(args!!.get(0), "AWAY", args!!.get(1), args!!.get(2))
+                binding.tvMytip.text = "My tip: ${args?.get(2)}"
+            } else {
+                toastLong("Invalid tip! You can not tip during or after the match!")
+            }
         }
     }
 
@@ -72,6 +88,12 @@ class DetailTipActivity : BaseActivity() {
             .addOnFailureListener { exception ->
                 Log.d("TAG", "get failed with ", exception)
             }
+    }
+
+    private fun checkDate(): Boolean {
+        val currentDate = Calendar.getInstance()
+        val currentHour = currentDate.get(Calendar.HOUR_OF_DAY)
+        return currentHour < args?.get(7)?.take(2)?.toInt()!!
     }
 
     private fun getDate(): String {

@@ -32,4 +32,6 @@
     <string name="alltips_fragment_title">All tips</string>
     <string name="rankings_fragment_title">Rankings</string>
     <string name="show_tips">Show tips</string>
+    <string name="correct">Correct</string>
+    <string name="wrong">Wrong</string>
 </resources>

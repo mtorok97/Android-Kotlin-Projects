@@ -1,7 +1,9 @@
 package hu.bme.aut.android.hfdemo
 
 import android.os.Bundle
+import android.util.Log
 import hu.bme.aut.android.hfdemo.databinding.ActivityStartBinding
+import java.util.*
 
 class StartActivity : BaseActivity() {
     private lateinit var binding: ActivityStartBinding

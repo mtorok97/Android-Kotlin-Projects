@@ -15,7 +15,6 @@ import hu.bme.aut.android.hfdemo.databinding.MatchOverviewBinding
 import com.bumptech.glide.Glide
 
 class MatchAdapter(private val context: Context) : ListAdapter<Match, MatchAdapter.MatchViewHolder>(itemCallback) {
-
     var itemClickListener: MatchItemClickListener? = null
 
     companion object {

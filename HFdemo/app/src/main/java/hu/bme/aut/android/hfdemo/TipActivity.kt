@@ -18,6 +18,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.io.Serializable
 import java.util.*
 
 
@@ -27,6 +28,7 @@ class TipActivity : BaseActivity(), MatchAdapter.MatchItemClickListener {
     private lateinit var retrofitResult: RetrofitResult
     private var sportRes: AllData? = null
     private var currentDate: String = getDate()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,8 +45,9 @@ class TipActivity : BaseActivity(), MatchAdapter.MatchItemClickListener {
             getretrofit()
         }
 
-        binding.btn2.setOnClickListener{
-            startActivity(Intent(this, TipViewActivity::class.java))
+        binding.btn2.setOnClickListener {
+            val intent = Intent(this, TipViewActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -100,7 +103,7 @@ class TipActivity : BaseActivity(), MatchAdapter.MatchItemClickListener {
                                         )
                                     }
                                 }
-                            },
+                            }
                         )
                     }
                 }
