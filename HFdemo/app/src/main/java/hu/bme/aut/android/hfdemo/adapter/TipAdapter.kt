@@ -96,7 +96,7 @@ class TipAdapter(private val context: Context) :
     }
 
     interface TipItemClickListener {
-        fun onItemClick(match: Tip)
+        fun onItemClick(tip: Tip)
         //fun onItemLongClick(position: Int, view: View): Boolean
     }
 }

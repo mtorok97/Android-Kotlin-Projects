@@ -27,7 +27,7 @@ class MytipsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentMytipsBinding.inflate(layoutInflater, container, false)
         tipAdapter = this.context?.let { TipAdapter(it) }!!
         binding.root.findViewById<RecyclerView>(R.id.tip_list).adapter = tipAdapter
