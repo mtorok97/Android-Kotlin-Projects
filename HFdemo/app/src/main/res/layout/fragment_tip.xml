@@ -25,7 +25,7 @@
                 android:layout_height="72dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="24dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_results2" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"

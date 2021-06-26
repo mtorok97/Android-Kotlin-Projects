@@ -1,7 +1,6 @@
 package hu.bme.aut.android.hfdemo.data
 
 import com.squareup.moshi.JsonClass
-import hu.bme.aut.android.hfdemo.jsonkotlin.Response
 
 //@JsonClass(generateAdapter = true)
 //class TestData2 : ArrayList<TestData2Item>()

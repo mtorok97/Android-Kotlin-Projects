@@ -6,11 +6,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_results2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_results2"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Gameon">
+        android:theme="@style/Theme.Gameon"
+        android:name=".PlayerApplication">
         <activity android:name=".TipViewActivity"/>
         <activity android:name=".DetailTipActivity" />
         <activity android:name=".TipActivity" />
@@ -21,7 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

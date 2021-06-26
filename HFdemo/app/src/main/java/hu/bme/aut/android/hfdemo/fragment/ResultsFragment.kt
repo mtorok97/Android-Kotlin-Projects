@@ -20,7 +20,6 @@ import java.util.*
 
 
 class ResultsFragment : Fragment(), DatePickerDialogFragment.DateListener {
-
     private lateinit var binding: FragmentResultsBinding
     private lateinit var matchAdapter: MatchAdapter
     private lateinit var sportRes: AllData
@@ -54,11 +53,13 @@ class ResultsFragment : Fragment(), DatePickerDialogFragment.DateListener {
         datePicker.show(getParentFragmentManager(), DatePickerDialogFragment.TAG)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onDateSelected(date: String) {
         currentDate = date
         binding.tvData.text = "Date: $currentDate"
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -114,9 +115,7 @@ class ResultsFragment : Fragment(), DatePickerDialogFragment.DateListener {
 
 
                     val sportResult = response.body()
-                    if (sportResult != null) {
-                        sportRes = sportResult
-                    }
+
                     if (sportResult?.response != null) {
                         for (element in sportResult.response) {
                             element.teams?.home?.name?.let { it1 -> homeTeamList.add(it1) }
